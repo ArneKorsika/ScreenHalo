@@ -12,6 +12,11 @@ mv -f "$app/Contents/MacOS/ScreenHalo.new" "$app/Contents/MacOS/ScreenHalo"
 cp Info.plist "$app/Contents/Info.plist"
 cp LICENSE "$app/Contents/Resources/LICENSE"
 touch "$app"
-codesign --force --sign "${SCREENHALO_SIGN_IDENTITY:--}" --entitlements ScreenHalo.entitlements "$app"
+signing_identity="${SCREENHALO_SIGN_IDENTITY:--}"
+if [[ "$signing_identity" == "-" ]]; then
+    codesign --force --sign - --entitlements ScreenHalo.entitlements "$app"
+else
+    codesign --force --sign "$signing_identity" --options runtime --timestamp --entitlements ScreenHalo.entitlements "$app"
+fi
 codesign --verify --strict "$app"
 echo "Built $app"

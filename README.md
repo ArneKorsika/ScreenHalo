@@ -16,7 +16,7 @@ You do not need Xcode or Command Line Tools to run the packaged app.
 
 - Requires macOS 14 Sonoma or later.
 - The current packaged build is Intel-only. An Apple silicon build is not included. Running the Intel build on Apple silicon requires Rosetta and has not been verified here.
-- The current build is ad-hoc signed and is not notarized by Apple. Try opening it first. If macOS blocks it and you trust the download, open **System Settings → Privacy & Security → Open Anyway**.
+- The v0.1.1 release is signed with a Developer ID certificate and notarized by Apple. Older releases may still require **System Settings → Privacy & Security → Open Anyway**.
 
 ## Set up your lights
 
