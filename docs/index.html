@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ScreenHalo — ambient light for your Mac display</title>
+    <meta name="description" content="ScreenHalo is a free macOS menu bar app for compatible Skydimo USB LED strips. Match your lights to your selected display or choose a solid color. Screen images stay in memory and are never saved or uploaded.">
+    <link rel="canonical" href="https://screenhalo.si/">
+    <meta property="og:url" content="https://screenhalo.si/">
+    <meta name="theme-color" content="#0B0C10">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer>
+    </script>
+  </head>
+  <body>
+    <header class="top">
+      <div class="container">
+        <a class="brand" href="#">Screen<span>Halo</span></a>
+        <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <svg class="bars" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path
+          d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="x" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6
+          6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <nav class="links" id="site-nav" aria-label="Page sections">
+          <a href="#how">How it works</a> <a href="#screens">Screenshots</a> <a href="#need">What you need</a>
+          <a href="#privacy">Privacy</a> <a href="#start">Get started</a> <a href="#faq">FAQ</a> <a
+          href="https://github.com/ArneKorsika/ScreenHalo" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div>
+            <div class="icon" style="--s: 72px; width: 72px; height: 72px; margin-bottom: 28px" aria-hidden="true">
+              <span class="icon-glow"></span><span class="icon-rim"></span><span
+              class="icon-screen"></span><span class="icon-neck"></span><span class="icon-base"></span>
+            </div>
+            <h1>
+              Screen<span>Halo</span>
+            </h1>
+            <p class="intro-text">
+              A small, <strong style="color: var(--text); font-weight: 600">free and open source</strong> menu
+              bar app that lights the wall behind your Mac display with the colors on your screen.
+            </p>
+            <p class="alt">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7
+              3v5.5c0 4.3-2.9 8-7 9.5-4.1-1.5-7-5.2-7-9.5V6l7-3z" stroke="currentColor" stroke-width="1.8"
+              stroke-linejoin="round"/></svg><span>Local lighting for compatible USB strips using the
+              <strong>Skydimo</strong> serial protocol.</span>
+            </p>
+            <div class="button-group">
+              <a class="button primary"
+              href="https://github.com/ArneKorsika/ScreenHalo/releases/latest/download/ScreenHalo.zip" target="_blank" rel="noopener noreferrer"> <svg
+              width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v11m0
+              0l-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"/></svg> Download for Intel Mac </a> <a class="button ghost"
+              href="https://github.com/ArneKorsika/ScreenHalo" target="_blank" rel="noopener noreferrer">View source</a>
+            </div>
+            <p class="small">
+              <strong style="color: var(--text); font-weight: 500">Requires macOS 14 Sonoma or later.</strong>
+              Intel download · No developer tools needed to run the app · MIT License
+            </p>
+            <p class="small">
+              On an Intel Mac, you can also
+              <a href="https://github.com/ArneKorsika/ScreenHalo#build-from-source"
+                target="_blank" rel="noopener noreferrer">build it yourself</a>
+              with Xcode or Apple’s Command Line Tools.
+              <strong style="color: var(--text); font-weight: 500">Apple silicon (M-series) version coming soon.</strong>
+            </p>
+          </div>
+          <div class="stage">
+            <div class="glow" aria-hidden="true">
+            </div>
+            <div class="preview-menu-bar" aria-hidden="true">
+              <span class="mb-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5
+              15.5V8a3.5 3.5 0 0 1 3.5-3.5h7A3.5 3.5 0 0 1 19 8v7.5" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round"/><rect x="8" y="7.5" width="8" height="6.5" rx="1.1"
+              fill="currentColor"/><path d="M12 14v3.4M9.6 18.2h4.8" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round"/></svg></span> <span class="mb-shape" style="width: 16px"></span> <span
+              class="mb-shape" style="width: 24px"></span> <span class="mb-time">Tue 9 Sep 9:41</span>
+            </div>
+            <img class="popover-screenshot" src="screenshots/popover.png" width="844" height="1076" alt="The
+            real ScreenHalo menu bar popover: lights on in Screen sync mode with a live preview of the LED
+            strip, and Brightness and Smoothing sliders.">
+          </div>
+        </div>
+      </section>
+      <section class="block" id="how">
+        <div class="container">
+          <div class="head">
+            <span class="eyebrow">How it works</span>
+            <h2>
+              Your screen's edges, painted on the wall.
+            </h2>
+            <p class="muted">
+              Like an ambient-light TV, but for the monitor on your desk, using a USB LED strip on the back of
+              your screen.
+            </p>
+          </div>
+          <div class="grid3">
+            <div class="card">
+              <span class="num" style="background: var(--cyan)">1</span>
+              <h3>
+                Sample the edges
+              </h3>
+              <p class="muted">
+                ScreenHalo captures a small image of your selected display and samples bands along its left,
+                top, and right edges. The bottom edge is not used.
+              </p>
+            </div>
+            <div class="card">
+              <span class="num" style="background: var(--violet)">2</span>
+              <h3>
+                Map to LEDs
+              </h3>
+              <p class="muted">
+                Each LED follows the average color of its matching edge region. Adjustable smoothing softens
+                transitions.
+              </p>
+            </div>
+            <div class="card">
+              <span class="num" style="background: var(--pink)">3</span>
+              <h3>
+                Send to the strip
+              </h3>
+              <p class="muted">
+                Colors go straight to the strip over USB, and the wall glows to match.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="block" id="screens">
+        <div class="container">
+          <div class="head">
+            <span class="eyebrow">Screenshots</span>
+            <h2>
+              Small, quiet, out of your way.
+            </h2>
+          </div>
+          <div class="shots">
+            <figure class="full">
+              <a class="zoom" href="screenshots/setup.png" aria-label="Enlarge screenshot"><img
+              src="screenshots/setup.png" width="1600" height="1245" loading="lazy" alt="ScreenHalo Setup:
+              choose your display, connect your USB strip, choose Screen sync or Solid color, then turn on the
+              lights."></a>
+              <figcaption>
+                Setup walks you through it: pick your display, plug in the strip, turn on the lights.
+              </figcaption>
+            </figure>
+            <figure class="pop">
+              <a class="zoom" href="screenshots/popover.png" aria-label="Enlarge screenshot"><img
+              src="screenshots/popover.png" width="844" height="1076" loading="lazy" alt="The ScreenHalo menu
+              bar popover with the lights on in Screen sync mode, a live LED preview, and Brightness and
+              Smoothing sliders."></a>
+              <figcaption>
+                Everything you need, one click from the menu bar.
+              </figcaption>
+            </figure>
+            <figure class="wide">
+              <a class="zoom" href="screenshots/led-layout.png" aria-label="Enlarge screenshot"><img
+              src="screenshots/led-layout.png" width="1600" height="1245" loading="lazy" alt="LED layout
+              settings: 13 LEDs left, 26 top, 13 right, strip starting bottom left, clockwise."></a>
+              <figcaption>
+                Map your strip once and every LED picks up the right edge.
+              </figcaption>
+            </figure>
+            <div class="thumbs">
+              <figure>
+                <a class="zoom" href="screenshots/general.png" aria-label="Enlarge screenshot"><img
+                src="screenshots/general.png" width="1600" height="1245" loading="lazy" alt="General settings:
+                open at login, auto off when the display sleeps or the Mac locks, and capture settings."></a>
+                <figcaption>
+                  General
+                </figcaption>
+              </figure>
+              <figure>
+                <a class="zoom" href="screenshots/device.png" aria-label="Enlarge screenshot"><img
+                src="screenshots/device.png" width="1600" height="1245" loading="lazy" alt="Device settings
+                showing an LED strip connected over USB with 52 LEDs."></a>
+                <figcaption>
+                  Device
+                </figcaption>
+              </figure>
+              <figure>
+                <a class="zoom" href="screenshots/shortcuts.png" aria-label="Enlarge screenshot"><img
+                src="screenshots/shortcuts.png" width="1600" height="1245" loading="lazy" alt="Shortcuts
+                settings with global keyboard shortcuts for lights, mode, brightness and color."></a>
+                <figcaption>
+                  Shortcuts
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="block" id="need">
+        <div class="container two-column" style="gap: 48px; align-items: start">
+          <div class="head" style="margin: 0">
+            <span class="eyebrow">What you need</span>
+            <h2>
+              Your Mac. A compatible USB strip.
+            </h2>
+            <p class="muted">
+              Choose a compatible controller and match the LED layout to your monitor.
+            </p>
+          </div>
+          <ul class="check">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5
+              12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round"/></svg><span><strong>An Intel Mac</strong> <span class="muted">running macOS 14
+              Sonoma or later. Download the ready-to-run app or build it yourself from source with Xcode
+              or Apple’s Command Line Tools. A native Apple silicon (M-series) version is coming soon.</span></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5
+              12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round"/></svg><span><strong>A compatible Skydimo USB LED strip</strong> <span
+              class="muted">mounted on the back of your monitor. ScreenHalo uses the Skydimo serial protocol
+              at 115200 baud, with RGB color order and up to 255 LEDs. Using the Skydimo app does not
+              guarantee compatibility with every controller.</span></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5
+              12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round"/></svg><span><strong>A free USB port</strong> <span class="muted">for
+              the strip.</span></span>
+            </li>
+          </ul>
+          <div class="why later">
+            <span class="eyebrow" style="font-size: 12px">Ideas for the future</span>
+            <ul class="soon">
+              <li>
+                <strong>More than screens.</strong> Desk light bars and other lighting could be explored. The
+                current app supports one USB strip behind one selected display.
+              </li>
+              <li>
+                <strong>Windows and Linux.</strong> ScreenHalo currently supports macOS only. Windows and
+                Linux versions are possible future projects, with no release dates.
+              </li>
+              <li>
+                <strong>Custom hardware for DIY strips.</strong> A controller for DIY strips is another
+                possible direction. No custom hardware is available with the current app.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="block" id="start">
+        <div class="container">
+          <div class="head">
+            <span class="eyebrow">Get started</span>
+            <h2>
+              Up and glowing in five steps.
+            </h2>
+          </div>
+          <ol class="steps">
+            <li>
+              <h3>
+                Download and install
+              </h3>
+              <p class="muted">
+                Download the app ZIP from <a
+                href="https://github.com/ArneKorsika/ScreenHalo/releases/latest" target="_blank" rel="noopener noreferrer">Releases</a>, unzip it and
+                drag ScreenHalo into your Applications folder. Choose the ScreenHalo.zip attachment, not
+                GitHub’s source-code ZIP. No developer tools are required.
+              </p>
+            </li>
+            <li>
+              <h3>
+                Open it the first time
+              </h3>
+              <p class="muted">
+                Try opening ScreenHalo first. ScreenHalo isn't notarized by Apple yet, so if macOS blocks it,
+                open System Settings › Privacy &amp; Security, scroll down and click <strong>Open
+                Anyway</strong>.
+              </p>
+            </li>
+            <li>
+              <h3>
+                Run Setup
+              </h3>
+              <p class="muted">
+                On first launch, ScreenHalo opens <strong>Setup</strong>. Choose the display with the strip
+                behind it, plug your LED strip into a USB port and pick it from the list. Quit the Skydimo app
+                first so it isn't holding the strip.
+              </p>
+            </li>
+            <li>
+              <h3>
+                Allow screen access (Screen sync only)
+              </h3>
+              <p class="muted">
+                Screen sync needs permission to see your screen; Solid color works without it. Click
+                <strong>Allow screen access</strong> in Setup. If macOS asks, switch ScreenHalo on in System
+                Settings › Privacy &amp; Security (Apple lists it under “Screen &amp; System Audio
+                Recording”), then return to the app and click <strong>Check access</strong>. Quit and reopen
+                ScreenHalo if macOS asks, or if access still appears unavailable. macOS shows a capture
+                indicator while Screen sync is running. <strong style="color: var(--text)">Screen images are
+                processed in memory, never saved or sent over the network. Audio isn't captured.</strong>
+              </p>
+            </li>
+            <li>
+              <h3>
+                Turn on the lights
+              </h3>
+              <p class="muted">
+                Pick <strong>Screen sync</strong> or <strong>Solid color</strong> and click <strong>Turn on
+                lights</strong>. If the glow looks shifted or mirrored, open <strong>LED layout</strong> and
+                set how many LEDs are on each side and where the strip starts.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section class="block" id="use">
+        <div class="container two-column" style="gap: 48px; align-items: start">
+          <div style="display: flex; flex-direction: column; gap: 20px">
+            <div class="head" style="margin: 0">
+              <span class="eyebrow">Using it</span>
+              <h2>
+                Lives in your menu bar.
+              </h2>
+              <p class="muted">
+                Click the halo icon to turn the lights on or off, switch between <strong>Screen sync</strong>
+                and <strong>Solid color</strong>, and adjust brightness and smoothing. The icon changes to
+                show whether the lights are on or off. Closing the settings window keeps the app running;
+                choose Quit ScreenHalo to exit.
+              </p>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: center">
+              <span class="ico" title="On"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              role="img" aria-label="Menu bar icon, lights on"><path d="M5 15.5V8a3.5 3.5 0 0 1 3.5-3.5h7A3.5
+              3.5 0 0 1 19 8v7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="8"
+              y="7.5" width="8" height="6.5" rx="1.1" fill="currentColor"/><path d="M12 14v3.4M9.6 18.2h4.8"
+              stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span> <span
+              class="muted" style="font-size: 14px">On</span> <span class="ico" title="Off"
+              style="margin-left: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" role="img"
+              aria-label="Menu bar icon, lights off"><rect x="8" y="7.5" width="8" height="6.5" rx="1.1"
+              stroke="currentColor" stroke-width="1.4"/><path d="M12 14v3.4M9.6 18.2h4.8"
+              stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span> <span
+              class="muted" style="font-size: 14px">Off</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <span class="eyebrow">Default shortcuts</span>
+            <div class="table-box">
+              <table> <thead><tr><th scope="col">Action</th><th scope="col">Keys</th></tr></thead> <tbody>
+              <tr><td>Turn lights on / off</td><td class="keys"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>H</kbd></td></tr>
+              <tr><td>Switch mode</td><td class="keys"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>M</kbd></td></tr>
+              <tr><td>Brightness up / down</td><td class="keys"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>↑</kbd> <span
+              class="muted">/</span> <kbd>↓</kbd></td></tr> <tr><td>Next solid color</td><td
+              class="keys"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>C</kbd></td></tr> </tbody> </table>
+            </div>
+            <p class="muted" style="font-size: 14px">
+              Change them any time in Settings › Shortcuts.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="block" id="privacy">
+        <div class="container two-column" style="gap: 48px; align-items: start">
+          <div class="head" style="margin: 0">
+            <span class="eyebrow">Privacy</span>
+            <h2>
+              Screen colors stay local.
+            </h2>
+            <p class="muted">
+              ScreenHalo processes frames from your selected display in memory and uses the edge colors to
+              drive your lights. Screen images are never saved or uploaded. Your preferences are saved
+              locally.
+            </p>
+            <div class="why">
+              <span class="eyebrow" style="font-size: 12px">Why ScreenHalo exists</span>
+              <p>
+                I wanted my desk lights to work locally, without an account or a cloud service, so I built
+                ScreenHalo.
+              </p>
+            </div>
+          </div>
+          <ul class="check">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5
+              12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round"/></svg><span><strong>No saved screen images.</strong> <span
+              class="muted">Screen images are processed in memory, never saved or sent over the network. Audio
+              isn't captured.</span></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5
+              12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round"/></svg><span><strong>No screen data goes over the internet.</strong>
+              <span class="muted">Colors go straight to your LED strip over USB.</span></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5
+              12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round"/></svg><span><strong>No account, no tracking, no analytics.</strong>
+              <span class="muted">Just install and go.</span></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5
+              12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round"/></svg><span><strong>Open source.</strong> <span class="muted">See how
+              the app works: <a href="https://github.com/ArneKorsika/ScreenHalo" target="_blank" rel="noopener noreferrer">read the
+              code</a>.</span></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="block" id="faq">
+        <div class="container two-column" style="gap: 48px; align-items: start">
+          <div class="head" style="margin: 0">
+            <span class="eyebrow">FAQ</span>
+            <h2>
+              Troubleshooting
+            </h2>
+            <p class="muted">
+              Quick fixes for the most common hiccups. Still stuck? <a
+              href="https://github.com/ArneKorsika/ScreenHalo/issues" target="_blank" rel="noopener noreferrer">Open an issue</a>.
+            </p>
+          </div>
+          <div>
+            <details>
+              <summary>
+                The strip stays dark or only shows black.
+              </summary>
+              <div class="faq-answer">
+                Check that your strip has power, the correct USB port is selected, brightness is above zero,
+                and other strip-control apps are closed. Try Solid color first: it needs no screen permission.
+                If Solid color works but Screen sync does not, open Setup and check screen access and the
+                selected display. Enable access in System Settings if needed, return and click Check access.
+                Quit and reopen if macOS asks. Protected video may appear black.
+              </div>
+            </details>
+            <details>
+              <summary>
+                The glow is on the wrong side or mirrored.
+              </summary>
+              <div class="faq-answer">
+                Check Settings › LED layout: check the counts for the left, top, and right sides, then choose
+                Bottom left · clockwise or Bottom right · counter-clockwise to match your cable. The bottom
+                edge is not sampled.
+              </div>
+            </details>
+            <details>
+              <summary>
+                My Mac feels slow while syncing.
+              </summary>
+              <div class="faq-answer">
+                Turn off the lights, open Settings → General → Screen capture, and lower Update rate and
+                Edge depth. Try 30 fps and 5–10% depth, then turn the lights back on. A lower update rate
+                captures less often. A smaller edge depth samples fewer pixels and makes the lights follow
+                colors closer to the screen edges.
+              </div>
+            </details>
+            <details>
+              <summary>
+                The glow flickers.
+              </summary>
+              <div class="faq-answer">
+                Raise Smoothing in the menu bar popover. Higher smoothing makes color changes calmer.
+              </div>
+            </details>
+            <details>
+              <summary>
+                Does it work alongside the official Skydimo app?
+              </summary>
+              <div class="faq-answer">
+                Quit the Skydimo app before using ScreenHalo. Only one app should control the strip at a time.
+                Another app holding the port can prevent ScreenHalo from connecting.
+              </div>
+            </details>
+            <details>
+              <summary>
+                Does ScreenHalo record or upload my screen?
+              </summary>
+              <div class="faq-answer">
+                No. Screen images are processed in memory, never saved or sent over the network, and audio
+                isn't captured. ScreenHalo only uses the edge colors to drive your LED strip, and it doesn't
+                connect to the internet. See <a href="#privacy">Privacy</a>.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <span>ScreenHalo is a free, non-commercial hobby project by <a
+        href="https://github.com/ArneKorsika" target="_blank" rel="noopener noreferrer">Arne Korsika</a>. <a
+        href="https://github.com/ArneKorsika/ScreenHalo/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>.<br><span
+        style="font-size: 13px">Independent project, not affiliated with, endorsed by or built from the code
+        of Skydimo. “Skydimo” is a trademark of its owner and is used here only to describe
+        compatibility.</span></span> <span><a href="https://github.com/ArneKorsika/ScreenHalo/issues" target="_blank" rel="noopener noreferrer">Report
+        an issue</a> · <a href="https://github.com/ArneKorsika/ScreenHalo" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
+      </div>
+    </footer>
+    <dialog class="lb" id="lightbox" aria-label="Screenshot viewer">
+      <span class="lb-count" id="lb-count"></span>
+      <button class="lb-btn lb-close" type="button" id="lb-close" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18
+        6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="lb-btn lb-prev" type="button" id="lb-prev" aria-label="Previous screenshot">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7
+        7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lb-btn lb-next" type="button" id="lb-next" aria-label="Next screenshot">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lb-stage" id="lb-stage">
+        <img id="lb-img" alt="">
+      </div>
+      <p class="lb-cap" id="lb-cap">
+      </p>
+    </dialog>
+  </body>
+</html>

@@ -6,7 +6,7 @@ Built with SwiftUI and AppKit. Screen capture and color processing run locally, 
 
 [Website](https://screenhalo.si/) · [Releases](https://github.com/ArneKorsika/ScreenHalo/releases) · [Report an issue](https://github.com/ArneKorsika/ScreenHalo/issues)
 
-![ScreenHalo setup](https://screenhalo.si/screenshots/setup.png)
+![ScreenHalo setup](images/setup.png)
 
 ## Download
 
