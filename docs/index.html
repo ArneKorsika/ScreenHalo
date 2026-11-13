@@ -11,6 +11,7 @@
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/analytics.js" defer></script>
     <script src="assets/site.js" defer>
     </script>
   </head>
@@ -400,7 +401,7 @@
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5
               12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-              stroke-linejoin="round"/></svg><span><strong>No account, no tracking, no analytics.</strong>
+              stroke-linejoin="round"/></svg><span><strong>No account, tracking, or analytics in the app.</strong>
               <span class="muted">Just install and go.</span></span>
             </li>
             <li>
@@ -411,6 +412,23 @@
               code</a>.</span></span>
             </li>
           </ul>
+        </div>
+        <div class="container website-analytics" id="website-analytics">
+          <h3>Website analytics</h3>
+          <p class="muted">
+            This website uses Google Analytics only if you accept analytics cookies. It helps measure
+            visits, approximate countries, browser and device types, referral sources, and clicks on
+            downloads, source code, issues, and screenshots. A download click does not confirm an
+            installation. No Google Analytics tag loads before you accept.
+          </p>
+          <p class="muted">
+            Google processes this website usage data. Advertising storage, ad personalization, and
+            Google signals are disabled in our tag configuration. We remember your consent choice in
+            this browser for up to six months. Use Analytics settings in the footer to change your
+            choice; rejecting disables collection and clears this site’s Google Analytics cookies.
+            ScreenHalo’s macOS app has no analytics. See
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google’s privacy policy</a>.
+          </p>
         </div>
       </section>
       <section class="block" id="faq">
@@ -498,9 +516,23 @@
         style="font-size: 13px">Independent project, not affiliated with, endorsed by or built from the code
         of Skydimo. “Skydimo” is a trademark of its owner and is used here only to describe
         compatibility.</span></span> <span><a href="https://github.com/ArneKorsika/ScreenHalo/issues" target="_blank" rel="noopener noreferrer">Report
-        an issue</a> · <a href="https://github.com/ArneKorsika/ScreenHalo" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
+        an issue</a> · <a href="https://github.com/ArneKorsika/ScreenHalo" target="_blank" rel="noopener noreferrer">Source on GitHub</a> ·
+        <button class="analytics-settings" id="analytics-settings" type="button"
+          aria-controls="analytics-consent" aria-expanded="false">Analytics settings</button></span>
       </div>
     </footer>
+    <section class="analytics-consent" id="analytics-consent" aria-labelledby="analytics-consent-title" hidden>
+      <h2 id="analytics-consent-title">Allow website analytics?</h2>
+      <p>
+        With your permission, Google Analytics uses cookies to help us understand visits, countries,
+        and clicks on this website. The ScreenHalo app has no analytics. You can change your choice anytime.
+        <a href="#website-analytics">More about website analytics</a>.
+      </p>
+      <div class="consent-actions">
+        <button type="button" id="analytics-reject">Reject analytics</button>
+        <button type="button" id="analytics-accept">Accept analytics</button>
+      </div>
+    </section>
     <dialog class="lb" id="lightbox" aria-label="Screenshot viewer">
       <span class="lb-count" id="lb-count"></span>
       <button class="lb-btn lb-close" type="button" id="lb-close" aria-label="Close">

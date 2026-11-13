@@ -1025,3 +1025,72 @@ footer .container {
 section[id] {
   scroll-margin-top: 88px;
 }
+
+[hidden] {
+  display: none !important;
+}
+
+.analytics-consent {
+  position: fixed;
+  inset: auto 16px 16px;
+  z-index: 30;
+  width: min(680px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  margin: 0 auto;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+.analytics-consent h2 {
+  font-size: 20px;
+}
+
+.analytics-consent p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.consent-actions button {
+  flex: 1 1 150px;
+  padding: 10px 16px;
+  border: 1px solid var(--cyan);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.consent-actions button:hover {
+  background: rgba(61, 214, 245, 0.12);
+}
+
+.analytics-settings {
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: var(--cyan);
+  font: inherit;
+  cursor: pointer;
+}
+
+.website-analytics {
+  margin-top: 24px;
+}
+
+.website-analytics p {
+  margin-top: 12px;
+}
